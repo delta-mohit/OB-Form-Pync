@@ -8,7 +8,7 @@ const options = [
 ];
 const defaultName = "Society";
 const data = { options, defaultName };
-const Step1 = ({ updateFields, formData }) => {
+const Step1 = ({ goToIndex, updateFields, formData }) => {
   return (
     <>
       <div className="text-[22px] sm:text-[24px] font-extrabold font-spartan sm:mx-auto">
@@ -25,7 +25,15 @@ const Step1 = ({ updateFields, formData }) => {
       />
       <div className="mx-auto text-sm font-montserrat text-gray-800 mb-5 flex flex-col">
         <div>Already enrolled and want us to onboard</div>
-        <div className="mx-auto">another vehicle? Click here</div>
+        <div className="mx-auto">
+          another vehicle?{" "}
+          <a
+            className="text-[#1733eb] font-extrabold underline hover:cursor-pointer"
+            onClick={() => goToIndex(2)}
+          >
+            Click here
+          </a>
+        </div>
       </div>
     </>
   );

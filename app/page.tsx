@@ -41,7 +41,12 @@ export default function Home() {
   };
   const { currentStepIndex, step, isFirstStep, isLastStep, back, next, goTo } =
     useMultistepForm([
-      <Step1 key={0} updateFields={updateFields} formData={formData} />,
+      <Step1
+        key={0}
+        goToIndex={goToIndex}
+        updateFields={updateFields}
+        formData={formData}
+      />,
       <Step2 key={1} updateFields={updateFields} formData={formData} />,
       <Step3 key={2} updateFields={updateFields} formData={formData} />,
       <Step4 key={3} updateFields={updateFields} formData={formData} />,
