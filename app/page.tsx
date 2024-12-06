@@ -24,7 +24,7 @@ const INITIAL_DATA = {
   color: "",
   parkingType: "",
   parkingNumber: "",
-  day: "",
+  day: "", //This is day is for deep clean/ interior clean day at step 4
   time: "",
   slot: "",
 };
@@ -46,7 +46,7 @@ export default function Home() {
       <Step3 key={2} updateFields={updateFields} formData={formData} />,
       <Step4 key={3} updateFields={updateFields} formData={formData} />,
       <Step5 key={4} updateFields={updateFields} formData={formData} />,
-      <Step6 key={5} goToIndex={goToIndex} />,
+      <Step6 key={5} goToIndex={goToIndex} formData={formData} />,
     ]);
 
   return (

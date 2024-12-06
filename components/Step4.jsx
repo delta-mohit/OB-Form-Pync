@@ -48,7 +48,7 @@ const Step4 = ({ updateFields, formData }) => {
                   updateFields("day", day);
                   setActiveDay(day);
                 }}
-                className={`w-14 h-10 sm:w-12 sm:h-8 py-2 px-2 rounded-lg  ${
+                className={`w-14 h-10 sm:w-[20%] sm:h-8 py-2 px-2 rounded-lg  ${
                   activeDay === day
                     ? "bg-[#1733eb] text-white" // Active button styles
                     : "bg-[#d9d9d9] text-black hover:bg-[#b6b4b4]" // Default styles
@@ -64,7 +64,7 @@ const Step4 = ({ updateFields, formData }) => {
             Please choose your timing preference from the below available time
             slots on {dayMap[activeDay]}:
           </div>
-          <div className="grid grid-cols-3 gap-4 pt-4 text-[11px]">
+          <div className="grid grid-cols-3 gap-4 pt-4 text-[12px]">
             {time.map((time) => {
               return (
                 <button

@@ -24,12 +24,12 @@ const Step5 = ({ updateFields, formData }) => {
       <div className="w-fit mx-auto font-montserrat text-[14px] mt-10">
         Please select your daily cleaning time slot?
       </div>
-      <div className="w-full sm:w-1/2 mx-auto mt-10 grid grid-cols-3 gap-4 pt-4 text-[14px] sm:text-[16px]">
+      <div className="w-full sm:w-1/2 mx-auto mt-10 grid grid-cols-3 gap-4 pt-4 text-[12px] sm:text-[16px]">
         {time.map((t) => {
           return (
             <button
               key={t}
-              className={`text-black rounded-lg h-12  sm:h-8
+              className={`text-black rounded-lg h-12 sm:h-8
                     ${
                       activeTime === t
                         ? "bg-[#ffd994]"

@@ -11,7 +11,14 @@ const data = [
   { day: "Sunday", msg: "Dusting", time: "8-8:30 AM" },
 ];
 
-const Step6 = ({ goToIndex }) => {
+const dayMap = {
+  Wed: "Wednesday",
+  Fri: "Friday",
+  Sat: "Saturday",
+  Sun: "Sunday",
+};
+
+const Step6 = ({ goToIndex, formData }) => {
   return (
     <>
       <div className="text-[22px] sm:text-[24px] font-extrabold font-spartan mx-auto">
@@ -25,7 +32,13 @@ const Step6 = ({ goToIndex }) => {
         {data.map((d) => {
           return (
             <div key={d} className="flex sm:flex-col flex-row gap-5 sm:gap-3">
-              <button class="w-[120px] bg-[#d9d9d9] hover:bg-[#b6b4b4] text-black text-[14px] sm:text-[15px] py-2 px-2 border rounded-lg ">
+              <button
+                class={`w-[120px] ${
+                  dayMap[formData.day] === d.day
+                    ? "bg-[#1733eb] text-white"
+                    : "bg-[#d9d9d9] hover:bg-[#b6b4b4] text-black"
+                }  text-[14px] sm:text-[15px] py-2 px-2 border rounded-lg`}
+              >
                 {d.day}
               </button>
               <div className="flex flex-col justify-center">
@@ -38,12 +51,14 @@ const Step6 = ({ goToIndex }) => {
           );
         })}
       </div>
-      <button
-        class="w-[18rem] mx-auto mt-5 sm:mt-[70px] bg-[#ffd994] hover:bg-[#f3d397] text-black font-bold py-2 px-2 rounded-lg"
-        onClick={() => goToIndex(2)}
-      >
-        Add another car
-      </button>
+      <div className="grow">
+        <button
+          class="w-[18rem] absolute bottom-20 left-1/2 translate-x-[-50%] bg-[#ffd994] hover:bg-[#f3d397] text-black font-bold py-2 px-2 rounded-lg"
+          onClick={() => goToIndex(2)}
+        >
+          Add another car
+        </button>
+      </div>
     </>
   );
 };
