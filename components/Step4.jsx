@@ -15,6 +15,13 @@ const time = [
   "11 - 11:30 AM",
 ];
 
+const dayMap = {
+  Wed: "Wednesday",
+  Fri: "Friday",
+  Sat: "Saturday",
+  Sun: "Sunday",
+};
+
 const Step4 = ({ updateFields, formData }) => {
   const [activeDay, setActiveDay] = useState(formData.day);
   const [activeTime, setActiveTime] = useState(formData.time);
@@ -55,7 +62,7 @@ const Step4 = ({ updateFields, formData }) => {
         <div className="w-full sm:w-1/2">
           <div className="text-[14px] font-montserrat">
             Please choose your timing preference from the below available time
-            slots on <span className="bg-red-400">Wednesday</span>:
+            slots on {dayMap[activeDay]}:
           </div>
           <div className="grid grid-cols-3 gap-4 pt-4 text-[11px]">
             {time.map((time) => {
