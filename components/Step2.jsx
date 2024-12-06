@@ -6,8 +6,9 @@ const options = [
     value: "one",
     label: "1 Car",
   },
-  { value: "two", label: "2 Car" },
-  { value: "three", label: "3 Car" },
+  { value: "two", label: "2 Cars" },
+  { value: "three", label: "3 Cars" },
+  { value: "four", label: "4 Cars" },
 ];
 const defaultName = "No. of Cars";
 const data = { options, defaultName };
