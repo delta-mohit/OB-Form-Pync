@@ -11,7 +11,7 @@ const data = [
   { day: "Sunday", msg: "Dusting", time: "8-8:30 AM" },
 ];
 
-const Step6 = ({ goToIndex, updateFields, formData }) => {
+const Step6 = ({ goToIndex }) => {
   return (
     <>
       <div className="text-[22px] sm:text-[24px] font-extrabold font-spartan mx-auto">
@@ -24,7 +24,7 @@ const Step6 = ({ goToIndex, updateFields, formData }) => {
       <div className="sm:-mx-20 mt-4 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-0 justify-between font-montserrat">
         {data.map((d) => {
           return (
-            <div className="flex sm:flex-col flex-row gap-5 sm:gap-3">
+            <div key={d} className="flex sm:flex-col flex-row gap-5 sm:gap-3">
               <button class="w-[120px] bg-[#d9d9d9] hover:bg-[#b6b4b4] text-black text-[14px] sm:text-[15px] py-2 px-2 border rounded-lg ">
                 {d.day}
               </button>

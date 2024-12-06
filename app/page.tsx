@@ -31,35 +31,23 @@ const INITIAL_DATA = {
 
 export default function Home() {
   const [formData, setFormData] = useState(INITIAL_DATA);
-  function updateFields(fieldToUpdate: any, optionSelected: any) {
+  function updateFields(fieldToUpdate: string, optionSelected: unknown) {
     setFormData((prev) => {
       return { ...prev, [fieldToUpdate]: optionSelected };
     });
   }
-  const goToIndex = (index: any) => {
+  const goToIndex = (index: number) => {
     goTo(index);
   };
-  const {
-    steps,
-    currentStepIndex,
-    step,
-    isFirstStep,
-    isLastStep,
-    back,
-    next,
-    goTo,
-  } = useMultistepForm([
-    <Step1 updateFields={updateFields} formData={formData} />,
-    <Step2 updateFields={updateFields} formData={formData} />,
-    <Step3 updateFields={updateFields} formData={formData} />,
-    <Step4 updateFields={updateFields} formData={formData} />,
-    <Step5 updateFields={updateFields} formData={formData} />,
-    <Step6
-      goToIndex={goToIndex}
-      updateFields={updateFields}
-      formData={formData}
-    />,
-  ]);
+  const { currentStepIndex, step, isFirstStep, isLastStep, back, next, goTo } =
+    useMultistepForm([
+      <Step1 key={0} updateFields={updateFields} formData={formData} />,
+      <Step2 key={1} updateFields={updateFields} formData={formData} />,
+      <Step3 key={2} updateFields={updateFields} formData={formData} />,
+      <Step4 key={3} updateFields={updateFields} formData={formData} />,
+      <Step5 key={4} updateFields={updateFields} formData={formData} />,
+      <Step6 key={5} goToIndex={goToIndex} />,
+    ]);
 
   return (
     <div className="h-screen w-screen">
