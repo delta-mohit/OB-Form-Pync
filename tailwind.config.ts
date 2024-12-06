@@ -8,9 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        spartan: ["'League Spartan'", "sans-serif"],
+        montserrat: ["'Montserrat'", "sans-serif"],
       },
     },
   },
