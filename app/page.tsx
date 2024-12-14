@@ -8,6 +8,7 @@ import Step6 from "../components/Step6";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import useMultistepForm from "./useMultistepForm";
 import { useState } from "react";
+import ForwardButton from "../components/ForwardButton";
 
 const dots = [0, 1, 2, 3, 4, 5];
 const INITIAL_DATA = {
@@ -27,6 +28,7 @@ const INITIAL_DATA = {
   day: "", //This is day is for deep clean/ interior clean day at step 4
   time: "",
   slot: "",
+  whichVehicle: 1,
 };
 
 export default function Home() {
@@ -51,32 +53,34 @@ export default function Home() {
       <Step3 key={2} updateFields={updateFields} formData={formData} />,
       <Step4 key={3} updateFields={updateFields} formData={formData} />,
       <Step5 key={4} updateFields={updateFields} formData={formData} />,
-      <Step6 key={5} goToIndex={goToIndex} formData={formData} />,
+      <Step6
+        key={5}
+        goToIndex={goToIndex}
+        updateFields={updateFields}
+        formData={formData}
+      />,
     ]);
 
   return (
     <div className="h-screen w-screen">
       <div className="h-[95%] sm:h-[80%] w-[80%] sm:w-3/4 absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col ">
         {step}
+
         <div className="w-[18rem] mx-auto flex gap-2 absolute bottom-4 left-1/2 translate-x-[-50%]">
           {!isFirstStep && (
             <button
-              className="bg-[#737373] rounded-full text-white w-10 flex justify-center items-center font-spartan"
+              className="bg-[#737373] rounded-full text-white h-10 w-10 flex justify-center items-center font-spartan"
               onClick={back}
             >
               <IoMdArrowRoundBack className="size-7" />
             </button>
           )}
-          <button
-            className="bg-[#5f1b69] grow hover:bg-[#782385] text-white font-bold py-2 px-4 rounded-lg font-spartan"
-            onClick={next}
-          >
-            {(() => {
-              if (currentStepIndex === 4) return "Show Schedule";
-              else if (isLastStep) return "Finish";
-              else return "Next";
-            })()}
-          </button>
+          <ForwardButton
+            currentStepIndex={currentStepIndex}
+            isLastStep={isLastStep}
+            formData={formData}
+            next={next}
+          />
         </div>
         <div className="flex gap-1 absolute bottom-0 left-1/2 translate-x-[-50%]">
           {dots.map((num) => {

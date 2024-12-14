@@ -4,13 +4,13 @@ import CheckBox from "./CheckBox";
 const options = [
   {
     value: "one",
-    label: "1 Car",
+    label: "1 Vehicle",
   },
-  { value: "two", label: "2 Cars" },
-  { value: "three", label: "3 Cars" },
-  { value: "four", label: "4 Cars" },
+  { value: "two", label: "2 Vehicles" },
+  { value: "three", label: "3 Vehicles" },
+  { value: "four", label: "4 Vehicles" },
 ];
-const defaultName = "No. of Cars";
+const defaultName = "No. of Vehicles";
 const data = { options, defaultName };
 const Step2 = ({ updateFields, formData }) => {
   return (
@@ -20,7 +20,7 @@ const Step2 = ({ updateFields, formData }) => {
       </div>
       <div className="w-fit mx-auto">
         <div className="text-[14px] text-gray-800 my-6 font-montserrat">
-          <div>How many cars would you like to onboard with us:</div>
+          <div>How many vehicles would you like to onboard with us:</div>
         </div>
 
         {/* No. of cars selection form */}
@@ -36,10 +36,12 @@ const Step2 = ({ updateFields, formData }) => {
 
         <div className="text-[14px] text-gray-800 mt-4 mb-12 flex flex-col font-montserrat">
           <div>We&apos;d need details and timing preferences for your</div>
-          <div>car or cars in the next sections of this form.</div>
+          <div>vehicle or vehicles in the next sections of this form.</div>
         </div>
         <div className="text-[14px] text-gray-800 mb-10 flex flex-col font-montserrat">
-          <div>If you&apos;ve more cars but would like to see our services</div>
+          <div>
+            If you&apos;ve more vehicles but would like to see our services
+          </div>
           <div>for one first, please select the check-box below.</div>
         </div>
 

@@ -5,7 +5,7 @@ const Step3 = ({ updateFields, formData }) => {
   return (
     <>
       <div className="text-[22px] sm:text-[24px] font-extrabold font-spartan mx-auto">
-        Tell us more about your car:
+        Tell us more about your vehicle {formData.whichVehicle} :
       </div>
 
       <CarDetailsForm updateFields={updateFields} formData={formData} />
