@@ -5,22 +5,23 @@ const ForwardButton = ({ currentStepIndex, isLastStep, formData, next }) => {
   //API Calling Fuction - START
   async function formSubmitHandler() {
     const data = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-      mobile: formData.mobile,
-      society: formData.society.label,
-      carCount: formData.carCount.label,
-      isChecked: formData.isChecked,
-      brand: formData.brand.label,
-      model: formData.model.label,
-      vehicleNumber: formData.vehicleNumber,
-      color: formData.color,
-      parkingType: formData.parkingType.label,
-      parkingNumber: formData.parkingNumber,
-      day: formData.day, //This is day is for deep clean/ interior clean day at step 4
-      time: formData.time,
-      slot: formData.slot,
+      firstName: formData?.firstName,
+      lastName: formData?.lastName,
+      email: formData?.email,
+      mobile: formData?.mobile,
+      society: formData?.society?.label,
+      carCount: formData?.carCount?.label,
+      isChecked: formData?.isChecked,
+      brand: formData?.brand?.label,
+      model: formData?.model?.label,
+      vehicleNumber: formData?.vehicleNumber,
+      color: formData?.color,
+      parkingType: formData?.parkingType?.label,
+      parkingNumber: formData?.parkingNumber,
+      vehicleType: formData?.vehicleType?.label,
+      day: formData?.day, // This is day is for deep clean/interior clean day at step 4
+      time: formData?.time,
+      slot: formData?.slot,
     };
 
     try {

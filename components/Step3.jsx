@@ -9,7 +9,7 @@ const Step3 = ({ updateFields, formData }) => {
       </div>
 
       <CarDetailsForm updateFields={updateFields} formData={formData} />
-      <div className="mx-auto w-full sm:w-[60%] text-[14px] font-montserrat sm:text-center text-gray-800 mt-5 flex flex-col">
+      <div className="mx-auto w-full sm:w-[60%] text-[14px] font-montserrat sm:text-center text-gray-800 mt-2 flex flex-col">
         <div>
           Please mention the exact parking number of your vehicle. Also mention
           the exact basement if your society has different basements (eg. UB, LB

@@ -19,6 +19,22 @@ const dayMap = {
 };
 
 const Step6 = ({ goToIndex, formData, updateFields }) => {
+  function clearSomeFields() {
+    const fields = [
+      "brand",
+      "model",
+      "vehicleNumber",
+      "color",
+      "parkingType",
+      "parkingNumber",
+      "vehicleType",
+      "day",
+      "time",
+      "slot",
+    ];
+    fields.forEach((field) => updateFields(field, null));
+  }
+
   return (
     <>
       <div className="text-[22px] sm:text-[24px] font-extrabold font-spartan mx-auto">
@@ -33,12 +49,12 @@ const Step6 = ({ goToIndex, formData, updateFields }) => {
           return (
             <div key={d} className="flex sm:flex-col flex-row gap-5 sm:gap-3">
               <button
-                class={`w-[120px] ${
+                className={`w-[120px] ${
                   dayMap[formData.day] === d.day
                     ? "bg-[#1733eb] text-white"
                     : d.day === "Monday"
-                    ? "bg-[#424242] hover:bg-[#7d7b7b] text-white"
-                    : "bg-[#d9d9d9] hover:bg-[#b6b4b4] text-black"
+                    ? "bg-[#424242]  text-white"
+                    : "bg-[#d9d9d9]  text-black"
                 }  text-[14px] sm:text-[15px] py-2 px-2 border rounded-lg`}
               >
                 {d.day}
@@ -55,13 +71,14 @@ const Step6 = ({ goToIndex, formData, updateFields }) => {
       </div>
       <div className={"grow " + (formData.isChecked ? "hidden" : "block")}>
         <button
-          class="w-[18rem] absolute bottom-20 left-1/2 translate-x-[-50%] bg-[#ffd994] hover:bg-[#f3d397] text-black font-bold py-2 px-2 rounded-lg"
+          className="w-[18rem] absolute bottom-20 left-1/2 translate-x-[-50%] bg-[#ffd994] hover:bg-[#f3d397] text-black font-bold py-2 px-2 rounded-lg"
           onClick={() => {
             goToIndex(2);
             updateFields("whichVehicle", formData.whichVehicle + 1);
+            clearSomeFields();
           }}
         >
-          Add another car
+          Add another vehicle
         </button>
       </div>
     </>

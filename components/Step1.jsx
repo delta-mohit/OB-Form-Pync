@@ -1,11 +1,60 @@
 import React from "react";
 import UserDetailsForm from "./UserDetailsForm";
 
-const options = [
-  { value: "whitefield", label: "White Field" },
-  { valye: "rajajinagar", label: "Rajaji Nagar" },
-  { value: "habbal", label: "Habbal" },
+const societies = [
+  "Akme harmony (AH)",
+  "Bren Zahara (BZ)",
+  "Brigade Parkside View (BPV)",
+  "Prestige - Kew Gardens (PKG)",
+  "Purva Skywood (PSW)",
+  "Purva Sunshine (PS)",
+  "SJR Redwood (SJRR)",
+  "SJR Watermark (SJRW)",
+  "Sobha Palladian (SP)",
+  "Springfields Apartments (SF)",
+  "Rohan Jharoka Phase 1 (RJ-1)",
+  "Prestige Ferns Residency (PF)",
+  "SNN Raj Etternia (SNNRE)",
+  "Purva Riviera (PR)",
+  "Purva Whitehall (PW)",
+  "SJR Verity (SJRV)",
+  "SCW Villaments (SCWV)",
+  "Buildafina Lumos (BL)",
+  "Bhuvana Greens (BG)",
+  "Emmanuel Heights (EH)",
+  "Estella Maple Square (EMS)",
+  "Rohan Jharoka Phase 2 (RJ-2)",
+  "Astro Green Park Regency (AGP)",
+  "SCW Towers (SCWT)",
+  "Confident Phoenix (CP)",
+  "Purva Skydale (PSD)",
+  "Rohan Iksha (RI)",
+  "DSR Eden Greens",
+  "Bren Edge Waters (BEW)",
+  "Purva Fountain Square (PFS)",
+  "Royal Avenue Residency (RA)",
+  "Salarpuria Sanctity (SS)",
+  "ND Passion (NDP)",
+  "Haryanvi Orchid Lake View (HG)",
+  "Adarsh Palm Retreat (APR)",
+  "DSR Woodwinds (DSRW)",
+  "VRR Fortuna (VRRF)",
+  "Sobha Royal Pavilion (SRP)",
+  "Mythri Sapphire",
+  "SJR Palazza City",
+  "Shobha Cinnamon and Saffron",
+  "Mahaveer Seasons",
+  "Other",
 ];
+
+const options = societies.map((society) => {
+  const value = society
+    .replace(/[^\w\s]/g, "") // Remove special characters
+    .replace(/\s+/g, "_") // Replace spaces with underscores
+    .toLowerCase(); // Convert to lowercase
+  return { value: value, label: society };
+});
+
 const defaultName = "Society";
 const data = { options, defaultName };
 const Step1 = ({ goToIndex, updateFields, formData }) => {

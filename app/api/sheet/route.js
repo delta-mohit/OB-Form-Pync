@@ -18,6 +18,7 @@ export async function POST(req) {
       color,
       parkingType,
       parkingNumber,
+      vehicleType,
       day,
       time,
       slot,
@@ -42,7 +43,7 @@ export async function POST(req) {
     // Append data to the spreadsheet
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.SPREADSHEET_ID, // Your Google Sheet ID
-      range: "Sheet1!A2:P", // Adjust range as needed
+      range: "Sheet1!A2:Q", // Adjust range as needed
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [
@@ -60,6 +61,7 @@ export async function POST(req) {
             color,
             parkingType,
             parkingNumber,
+            vehicleType,
             day,
             time,
             slot,

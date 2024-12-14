@@ -25,6 +25,7 @@ const INITIAL_DATA = {
   color: "",
   parkingType: "",
   parkingNumber: "",
+  vehicleType: "",
   day: "", //This is day is for deep clean/ interior clean day at step 4
   time: "",
   slot: "",
@@ -62,12 +63,12 @@ export default function Home() {
     ]);
 
   return (
-    <div className="h-screen w-screen">
-      <div className="h-[95%] sm:h-[80%] w-[80%] sm:w-3/4 absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col ">
+    <div className="h-screen w-screen ">
+      <div className="h-[95%] sm:h-[85%] w-[80%] sm:w-3/4 absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col ">
         {step}
 
         <div className="w-[18rem] mx-auto flex gap-2 absolute bottom-4 left-1/2 translate-x-[-50%]">
-          {!isFirstStep && (
+          {!isFirstStep && !isLastStep && (
             <button
               className="bg-[#737373] rounded-full text-white h-10 w-10 flex justify-center items-center font-spartan"
               onClick={back}

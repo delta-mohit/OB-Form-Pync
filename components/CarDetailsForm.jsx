@@ -21,18 +21,26 @@ const dataB = {
 
 const dataC = {
   options: [
-    { value: "one", label: "P 1" },
-    { value: "two", label: "P 2" },
-    { value: "three", label: "P 3" },
+    { value: "one", label: "Open parking" },
+    { value: "two", label: "Basement parking" },
+    { value: "three", label: "Ground floor but covered parking" },
   ],
   defaultName: "Parking Type",
 };
 
+const dataD = {
+  options: [
+    { value: "two", label: "2 Wheeler" },
+    { value: "four", label: "4 Wheeler" },
+  ],
+  defaultName: "Vehicle Type",
+};
+
 const CarDetailsForm = ({ updateFields, formData }) => {
   return (
-    <form className="w-full sm:w-[60%] mx-auto mt-6 sm:mt-10 font-montserrat">
+    <form className="w-full sm:w-[60%] mx-auto mt-2 sm:mt-10 font-montserrat">
       <div className="grid md:grid-cols-2 md:gap-6">
-        <div className="w-full mx-auto mb-4 sm:mb-5">
+        <div className="w-full mx-auto mb-1 sm:mb-5">
           <DropdownMenu
             data={dataA}
             displayText={formData.brand}
@@ -40,7 +48,7 @@ const CarDetailsForm = ({ updateFields, formData }) => {
             fieldToUpdate={"brand"}
           />
         </div>
-        <div className="w-full mx-auto mb-2 sm:mb-5">
+        <div className="w-full mx-auto mb-1 sm:mb-5">
           <DropdownMenu
             data={dataB}
             displayText={formData.model}
@@ -51,10 +59,9 @@ const CarDetailsForm = ({ updateFields, formData }) => {
       </div>
 
       <div className="grid md:grid-cols-2 md:gap-6">
-        <div className="relative z-0 w-full mb-2 sm:mb-5 group">
+        <div className="relative z-0 w-full mb-1 sm:mb-5 group">
           <input
-            type="tel"
-            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            type="text"
             name="floating_phone"
             id="floating_phone"
             className="block py-2.5 px-0 w-full text-[16px] text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
@@ -74,7 +81,7 @@ const CarDetailsForm = ({ updateFields, formData }) => {
             Please mention the complete vehicle number
           </div>
         </div>
-        <div className="relative z-0 w-full mb-3 sm:mb-5 group">
+        <div className="relative z-0 w-full mb-1 sm:mb-5 group">
           <input
             type="text"
             name="floating_company"
@@ -95,7 +102,7 @@ const CarDetailsForm = ({ updateFields, formData }) => {
         </div>
       </div>
       <div className="grid md:grid-cols-2 md:gap-6">
-        <div className="w-full mx-auto mb-2 sm:mb-5">
+        <div className="w-full mx-auto mb-1 sm:mb-5">
           <DropdownMenu
             data={dataC}
             displayText={formData.parkingType}
@@ -103,7 +110,7 @@ const CarDetailsForm = ({ updateFields, formData }) => {
             fieldToUpdate={"parkingType"}
           />
         </div>
-        <div className="relative z-0 w-full mb-4 sm:mb-5 group">
+        <div className="relative z-0 w-full mb-1 sm:mb-5 group">
           <input
             type="text"
             name="floating_company"
@@ -122,6 +129,14 @@ const CarDetailsForm = ({ updateFields, formData }) => {
             Parking Number
           </label>
         </div>
+      </div>
+      <div className="w-full sm:w-1/2 mb-1 mx-auto">
+        <DropdownMenu
+          data={dataD}
+          displayText={formData.vehicleType}
+          updateFields={updateFields}
+          fieldToUpdate={"vehicleType"}
+        />
       </div>
     </form>
   );
