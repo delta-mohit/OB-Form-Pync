@@ -1,23 +1,23 @@
 import React from "react";
 import DropdownMenu from "./DropdownMenu";
 
-const dataA = {
-  options: [
-    { value: "one", label: "Brand 1" },
-    { value: "two", label: "Brand 2" },
-    { value: "three", label: "Brand 3" },
-  ],
-  defaultName: "Brand",
-};
+// const dataA = {
+//   options: [
+//     { value: "one", label: "Brand 1" },
+//     { value: "two", label: "Brand 2" },
+//     { value: "three", label: "Brand 3" },
+//   ],
+//   defaultName: "Brand",
+// };
 
-const dataB = {
-  options: [
-    { value: "one", label: "Model 1" },
-    { value: "two", label: "Model 2" },
-    { value: "three", label: "Model 3" },
-  ],
-  defaultName: "Model",
-};
+// const dataB = {
+//   options: [
+//     { value: "one", label: "Model 1" },
+//     { value: "two", label: "Model 2" },
+//     { value: "three", label: "Model 3" },
+//   ],
+//   defaultName: "Model",
+// };
 
 const dataC = {
   options: [
