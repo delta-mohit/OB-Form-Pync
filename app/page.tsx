@@ -73,7 +73,10 @@ export default function Home() {
           {!isFirstStep && !isLastStep && (
             <button
               className="bg-[#737373] rounded-full text-white h-10 w-10 flex justify-center items-center font-spartan"
-              onClick={back}
+              onClick={() => {
+                back();
+                window.scrollTo(0, 0);
+              }}
             >
               <IoMdArrowRoundBack className="size-7" />
             </button>

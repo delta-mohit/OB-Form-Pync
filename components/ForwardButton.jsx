@@ -60,6 +60,7 @@ const ForwardButton = ({
       <button
         className="bg-[#5f1b69] grow hover:bg-[#782385] h-10 text-white font-bold py-2 px-4 rounded-lg font-spartan"
         onClick={async () => {
+          window.scrollTo(0, 0);
           if (!loading) {
             if (currentStepIndex === 4) {
               const isSubmited = await formSubmitHandler(); //it will wait till formSubmitHandler return something
