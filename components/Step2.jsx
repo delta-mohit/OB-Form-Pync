@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import DropdownMenu from "./DropdownMenu";
 import CheckBox from "./CheckBox";
+
+const wordToNumberMap = {
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9,
+  ten: 10,
+  // Add more if needed
+};
 const options = [
   {
     value: "one",
@@ -44,8 +58,12 @@ const Step2 = ({ updateFields, formData }) => {
           </div>
           <div>for one first, please select the check-box below.</div>
         </div>
-
-        <CheckBox isChecked={formData.isChecked} updateFields={updateFields} />
+        {wordToNumberMap[formData.carCount?.value?.toLowerCase()] > 1 && (
+          <CheckBox
+            isChecked={formData.isChecked}
+            updateFields={updateFields}
+          />
+        )}
       </div>
     </>
   );

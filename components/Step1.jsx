@@ -80,7 +80,10 @@ const Step1 = ({ goToIndex, updateFields, formData }) => {
           another vehicle?{" "}
           <a
             className="text-[#1733eb] font-extrabold underline hover:cursor-pointer"
-            onClick={() => goToIndex(2)}
+            onClick={() => {
+              goToIndex(2);
+              updateFields("whichVehicle", formData.whichVehicle + 1);
+            }}
           >
             Click here
           </a>

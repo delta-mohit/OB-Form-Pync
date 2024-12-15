@@ -75,9 +75,7 @@ const Step6 = ({ goToIndex, formData, updateFields }) => {
           );
         })}
       </div>
-      <div className="font-montserrat mt-20 sm:mt-12 mx-auto">
-        Thank you! Your request is now submitted.
-      </div>
+
       <div className={"grow " + (formData.isChecked ? "hidden" : "block")}>
         <button
           className="w-[18rem] absolute bottom-20 left-1/2 translate-x-[-50%] bg-[#ffd994] hover:bg-[#f3d397] text-black font-bold py-2 px-2 rounded-lg"
