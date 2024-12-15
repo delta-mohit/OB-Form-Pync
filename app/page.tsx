@@ -78,13 +78,15 @@ export default function Home() {
               <IoMdArrowRoundBack className="size-7" />
             </button>
           )}
-          <ForwardButton
-            currentStepIndex={currentStepIndex}
-            isLastStep={isLastStep}
-            formData={formData}
-            next={next}
-            toast={toast}
-          />
+          {!isLastStep && (
+            <ForwardButton
+              currentStepIndex={currentStepIndex}
+              isLastStep={isLastStep}
+              formData={formData}
+              next={next}
+              toast={toast}
+            />
+          )}
         </div>
         <div className="flex gap-1 absolute bottom-0 left-1/2 translate-x-[-50%]">
           {dots.map((num) => {

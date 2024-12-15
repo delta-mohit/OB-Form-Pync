@@ -45,12 +45,7 @@ const Step2 = ({ updateFields, formData }) => {
           <div>for one first, please select the check-box below.</div>
         </div>
 
-        {formData.carCount > 1 && (
-          <CheckBox
-            isChecked={formData.isChecked}
-            updateFields={updateFields}
-          />
-        )}
+        <CheckBox isChecked={formData.isChecked} updateFields={updateFields} />
       </div>
     </>
   );

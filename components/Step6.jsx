@@ -2,13 +2,13 @@
 import React from "react";
 
 const data = [
-  { day: "Monday", msg: "Week Off", time: "" },
-  { day: "Tuesday", msg: "Eco-washing", time: "8-8:30 AM" },
-  { day: "Wednesday", msg: "Deep Clean", time: "9:30-10 AM" },
-  { day: "Thursday", msg: "Eco-Washing", time: "8-8:30 AM" },
-  { day: "Friday", msg: "Dusting", time: "8-8:30 AM" },
-  { day: "Saturday", msg: "Eco-Washing", time: "8-8:30 AM" },
-  { day: "Sunday", msg: "Dusting", time: "8-8:30 AM" },
+  { day: "Monday", msg: "Week Off" },
+  { day: "Tuesday", msg: "Eco-washing" },
+  { day: "Wednesday", msg: "Dusting" },
+  { day: "Thursday", msg: "Eco-Washing" },
+  { day: "Friday", msg: "Dusting" },
+  { day: "Saturday", msg: "Eco-Washing" },
+  { day: "Sunday", msg: "Dusting" },
 ];
 
 const dayMap = {
@@ -61,13 +61,22 @@ const Step6 = ({ goToIndex, formData, updateFields }) => {
               </button>
               <div className="flex flex-col justify-center">
                 <div className="text-[15px] sm:text-[16.6px] sm:text-center">
-                  {d.msg}
+                  {dayMap[formData.day] === d.day ? "Deep Cleaning" : d.msg}
                 </div>
-                <div className="text-[10.8px] sm:text-center">{d.time}</div>
+                <div className="text-[10.8px] sm:text-center">
+                  {dayMap[formData.day] === d.day
+                    ? formData.time
+                    : d.day === "Monday"
+                    ? ""
+                    : formData.slot}
+                </div>
               </div>
             </div>
           );
         })}
+      </div>
+      <div className="font-montserrat mt-20 sm:mt-12 mx-auto">
+        Thank you! Your request is now submitted.
       </div>
       <div className={"grow " + (formData.isChecked ? "hidden" : "block")}>
         <button
