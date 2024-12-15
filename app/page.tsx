@@ -7,7 +7,7 @@ import Step5 from "../components/Step5";
 import Step6 from "../components/Step6";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import useMultistepForm from "./useMultistepForm";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ForwardButton from "../components/ForwardButton";
 import toast, { Toaster } from "react-hot-toast";
 
