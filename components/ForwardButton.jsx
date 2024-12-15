@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 
-const ForwardButton = ({ currentStepIndex, isLastStep, formData, next }) => {
+const ForwardButton = ({
+  currentStepIndex,
+  isLastStep,
+  formData,
+  next,
+  toast,
+}) => {
   const [loading, setLoading] = useState(false);
   //API Calling Fuction - START
   async function formSubmitHandler() {
@@ -50,30 +56,38 @@ const ForwardButton = ({ currentStepIndex, isLastStep, formData, next }) => {
 
   //API Calling Function - END
   return (
-    <button
-      className="bg-[#5f1b69] grow hover:bg-[#782385] h-10 text-white font-bold py-2 px-4 rounded-lg font-spartan"
-      onClick={() => {
-        if (!loading) {
-          if (currentStepIndex === 4) {
-            const isSubmited = formSubmitHandler();
-            setLoading(false);
-            if (isSubmited) next();
-          } else {
-            next();
+    <>
+      <button
+        className="bg-[#5f1b69] grow hover:bg-[#782385] h-10 text-white font-bold py-2 px-4 rounded-lg font-spartan"
+        onClick={async () => {
+          if (!loading) {
+            if (currentStepIndex === 4) {
+              const isSubmited = await formSubmitHandler(); //it will wait till formSubmitHandler return something
+              if (isSubmited === true) {
+                toast.success("Form Submitted!", { position: "top-center" });
+                setLoading(false);
+                next();
+              } else {
+                toast.error("Error!", { position: "top-center" });
+                setLoading(false);
+              }
+            } else {
+              next(); // For steps other than 4, directly call next().
+            }
           }
-        }
-      }}
-    >
-      {loading ? (
-        <div className="h-6 w-6 mx-auto border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-      ) : (
-        (() => {
-          if (currentStepIndex === 4) return "Submit Form";
-          else if (isLastStep) return "Finish";
-          else return "Next";
-        })()
-      )}
-    </button>
+        }}
+      >
+        {loading ? (
+          <div className="h-6 w-6 mx-auto border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+        ) : (
+          (() => {
+            if (currentStepIndex === 4) return "Submit Form";
+            else if (isLastStep) return "Finish";
+            else return "Next";
+          })()
+        )}
+      </button>
+    </>
   );
 };
 

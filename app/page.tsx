@@ -9,6 +9,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import useMultistepForm from "./useMultistepForm";
 import { useState } from "react";
 import ForwardButton from "../components/ForwardButton";
+import toast, { Toaster } from "react-hot-toast";
 
 const dots = [0, 1, 2, 3, 4, 5];
 const INITIAL_DATA = {
@@ -64,6 +65,7 @@ export default function Home() {
 
   return (
     <div className="h-screen w-screen ">
+      <Toaster />
       <div className="h-[95%] sm:h-[85%] w-[80%] sm:w-3/4 absolute left-1/2 top-1/2 translate-x-[-50%] translate-y-[-50%] flex flex-col ">
         {step}
 
@@ -81,6 +83,7 @@ export default function Home() {
             isLastStep={isLastStep}
             formData={formData}
             next={next}
+            toast={toast}
           />
         </div>
         <div className="flex gap-1 absolute bottom-0 left-1/2 translate-x-[-50%]">
