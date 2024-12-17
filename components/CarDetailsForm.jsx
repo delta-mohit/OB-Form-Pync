@@ -1,24 +1,6 @@
 import React from "react";
 import DropdownMenu from "./DropdownMenu";
 
-// const dataA = {
-//   options: [
-//     { value: "one", label: "Brand 1" },
-//     { value: "two", label: "Brand 2" },
-//     { value: "three", label: "Brand 3" },
-//   ],
-//   defaultName: "Brand",
-// };
-
-// const dataB = {
-//   options: [
-//     { value: "one", label: "Model 1" },
-//     { value: "two", label: "Model 2" },
-//     { value: "three", label: "Model 3" },
-//   ],
-//   defaultName: "Model",
-// };
-
 const dataC = {
   options: [
     { value: "one", label: "Open parking" },
@@ -30,8 +12,8 @@ const dataC = {
 
 const dataD = {
   options: [
-    { value: "two", label: "2 Wheeler" },
-    { value: "four", label: "4 Wheeler" },
+    { value: "TWO_WHEELER", label: "2 Wheeler" },
+    { value: "CAR", label: "4 Wheeler" },
   ],
   defaultName: "Vehicle Type",
 };
@@ -103,13 +85,19 @@ const CarDetailsForm = ({ updateFields, formData }) => {
         <div className="relative z-0 w-full mb-1 sm:mb-5 group">
           <input
             type="text"
+            pattern="[a-zA-Z0-9]*"
             name="floating_phone"
             id="floating_phone"
             className="block py-2.5 px-0 w-full text-[16px] text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" "
             autoComplete="off"
             value={formData.vehicleNumber}
-            onChange={(e) => updateFields("vehicleNumber", e.target.value)}
+            onChange={(e) => {
+              updateFields(
+                "vehicleNumber",
+                e.target.value.replace(/[^a-zA-Z0-9]/g, "").toUpperCase()
+              );
+            }}
             required
           />
           <label

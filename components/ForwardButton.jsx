@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import createCustomer from "../lib/api-call/createCustomer";
 
 const ForwardButton = ({
   currentStepIndex,
@@ -41,10 +42,10 @@ const ForwardButton = ({
       });
 
       if (response.ok) {
-        console.log("Feedback submitted successfully!");
+        console.log("Form submitted successfully!");
         return true;
       } else {
-        console.log("Failed to submit feedback.");
+        console.log("Failed to submit form.");
         return false;
       }
     } catch (error) {
@@ -62,7 +63,16 @@ const ForwardButton = ({
         onClick={async () => {
           window.scrollTo(0, 0);
           if (!loading) {
-            if (currentStepIndex === 4) {
+            if (currentStepIndex === 0 || currentStepIndex === 2) {
+              setLoading(true);
+              const { success, message } = await createCustomer(formData); // API Call Function
+              setLoading(false);
+              if (success) {
+                next();
+              } else {
+                toast.error(message, { position: "top-center" });
+              }
+            } else if (currentStepIndex === 4) {
               const isSubmited = await formSubmitHandler(); //it will wait till formSubmitHandler return something
               if (isSubmited === true) {
                 toast.success("Form Submitted!", { position: "top-center" });

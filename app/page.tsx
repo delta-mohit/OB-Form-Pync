@@ -63,31 +63,6 @@ export default function Home() {
       />,
     ]);
 
-  // Handle the logic of keyoboard open and form shifts upward
-  /*const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
-  useEffect(() => {
-    const handleResize = () => {
-      const isKeyboardVisible =
-        window.visualViewport &&
-        window.visualViewport.height < window.innerHeight * 0.9;
-      setIsKeyboardOpen(Boolean(isKeyboardVisible));
-
-      if (!isKeyboardVisible) {
-        // Scroll the form back to the top of the page after the keyboard is closed
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-    };
-
-    // Listen for viewport size changes
-    window.visualViewport?.addEventListener("resize", handleResize);
-
-    // Cleanup the listener
-    return () => {
-      window.visualViewport?.removeEventListener("resize", handleResize);
-    };
-  }, []);
-*/
-  //End of keyboard handle logic
   return (
     <div className="h-screen w-screen ">
       <Toaster />
