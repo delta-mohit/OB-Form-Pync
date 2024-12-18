@@ -2,7 +2,12 @@ import React from "react";
 import DropdownMenu from "./DropdownMenu";
 import CheckBox from "./CheckBox";
 
-const wordToNumberMap = {
+interface Step2Props {
+  formData: any;
+  updateFields: (field: string, value: string) => void;
+}
+
+const wordToNumberMap: { [key: string]: any } = {
   one: 1,
   two: 2,
   three: 3,
@@ -26,7 +31,7 @@ const options = [
 ];
 const defaultName = "No. of Vehicles";
 const data = { options, defaultName };
-const Step2 = ({ updateFields, formData }) => {
+const Step2: React.FC<Step2Props> = ({ updateFields, formData }) => {
   return (
     <>
       <div className="text-[24px] font-extrabold mx-auto font-spartan">

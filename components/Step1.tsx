@@ -1,7 +1,13 @@
 import React from "react";
 import UserDetailsForm from "./UserDetailsForm";
 
-const societies = [
+interface Step1Props {
+  goToIndex: (index: number) => void;
+  updateFields: (field: string, value: number) => void;
+  formData: any;
+}
+
+const societies: string[] = [
   "Adarsh Palm Retreat (APR)",
   "Akme harmony (AH)",
   "Assetz 63 Degree East (A63)",
@@ -49,7 +55,7 @@ const societies = [
   "Other",
 ];
 
-const options = societies.map((society) => {
+const options: { value: string; label: string }[] = societies.map((society) => {
   const value = society
     .replace(/[^\w\s]/g, "") // Remove special characters
     .replace(/\s+/g, "_") // Replace spaces with underscores
@@ -59,7 +65,7 @@ const options = societies.map((society) => {
 
 const defaultName = "Society";
 const data = { options, defaultName };
-const Step1 = ({ goToIndex, updateFields, formData }) => {
+const Step1: React.FC<Step1Props> = ({ goToIndex, updateFields, formData }) => {
   return (
     <>
       <div className="text-[22px] sm:text-[24px] font-extrabold font-spartan sm:mx-auto">
