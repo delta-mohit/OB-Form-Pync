@@ -1,6 +1,20 @@
 "use client";
 import React from "react";
 
+const wordToNumberMap = {
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9,
+  ten: 10,
+  // Add more if needed
+};
+
 const data = [
   { day: "Monday", msg: "Week Off" },
   { day: "Tuesday", msg: "Eco-washing" },
@@ -75,19 +89,21 @@ const Step6 = ({ goToIndex, formData, updateFields }) => {
           );
         })}
       </div>
-
-      <div className={"grow " + (formData.isChecked ? "hidden" : "block")}>
-        <button
-          className="w-[18rem] absolute bottom-20 left-1/2 translate-x-[-50%] bg-[#ffd994] hover:bg-[#f3d397] text-black font-bold py-2 px-2 rounded-lg"
-          onClick={() => {
-            goToIndex(2);
-            updateFields("whichVehicle", formData.whichVehicle + 1);
-            clearSomeFields();
-          }}
-        >
-          Add another vehicle
-        </button>
-      </div>
+      {wordToNumberMap[formData.carCount?.value?.toLowerCase()] >
+        formData.whichVehicle && (
+        <div className={"grow " + (formData.isChecked ? "hidden" : "block")}>
+          <button
+            className="w-[18rem] absolute bottom-20 left-1/2 translate-x-[-50%] bg-[#ffd994] hover:bg-[#f3d397] text-black font-bold py-2 px-2 rounded-lg"
+            onClick={() => {
+              goToIndex(2);
+              updateFields("whichVehicle", formData.whichVehicle + 1);
+              clearSomeFields();
+            }}
+          >
+            Add another vehicle
+          </button>
+        </div>
+      )}
     </>
   );
 };
